@@ -6,6 +6,12 @@ Description: >
 Globals:
   Function:
     Timeout: 10
+  Api:
+    Cors:
+      AllowOrigin: "'*'"
+      AllowCredentials: true
+      AllowMethods: "'POST'"
+      AllowHeaders: "'Content-Type,X-CSRF-TOKEN'"
 
 Resources:
   DDBHandlerFunction:
