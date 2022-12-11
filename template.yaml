@@ -14,6 +14,21 @@ Globals:
       AllowHeaders: "'Content-Type,X-CSRF-TOKEN'"
 
 Resources:
+  DDBHandlerApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowMethods:
+          - GET
+          - DELETE
+          - PUT
+        AllowHeaders:
+          - Content-Type
+          - X-CSRF-TOKEN
+        AllowOrigins:
+          - "*"
+        AllowCredentials: true
+
   DDBHandlerFunction:
     Type: AWS::Serverless::Function
     Properties:
