@@ -10,7 +10,7 @@ Globals:
     Cors:
       AllowOrigin: "'*'"
       AllowCredentials: true
-      AllowMethods: "'POST'"
+      AllowMethods: "'GET, DELETE, PUT'"
       AllowHeaders: "'Content-Type,X-CSRF-TOKEN'"
 
 Resources:
