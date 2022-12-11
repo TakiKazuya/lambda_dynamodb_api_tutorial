@@ -27,7 +27,6 @@ Resources:
           - X-CSRF-TOKEN
         AllowOrigins:
           - "*"
-        AllowCredentials: true
 
   DDBHandlerFunction:
     Type: AWS::Serverless::Function
