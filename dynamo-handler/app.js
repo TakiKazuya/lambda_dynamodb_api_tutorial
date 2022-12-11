@@ -1,13 +1,14 @@
 const AWS = require("aws-sdk");
 
-const dynamo = new AWS.DynamoDB.DocumentClient();
+const dynamo = new AWS.DynamoDB.DocumentClient({ region: "ap-northeast-1" });
 
 exports.handler = async (event, context) => {
   let body;
   let statusCode = 200;
   const headers = {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*"
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Origin": '*',
+    "Access-Control-Allow-Methods": "OPTIONS,POST,PUT,GET"
   };
 
   try {
@@ -34,6 +35,9 @@ exports.handler = async (event, context) => {
           .promise();
         break;
       case "GET /items":
+        const params = {
+          TableName: "http-crud-tutorial-items"
+        }
         body = await dynamo
           .scan({ TableName: "http-crud-tutorial-items" })
           .promise();
